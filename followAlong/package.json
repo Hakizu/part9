@@ -1,0 +1,20 @@
+{
+  "name": "ts.fullstackopen",
+  "version": "1.0.0",
+  "description": "part9",
+  "main": "index.js",
+  "scripts": {
+    "ts-node": "ts-node",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "part9"
+  },
+  "author": "Hakizu",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  }
+}
