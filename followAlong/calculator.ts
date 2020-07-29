@@ -20,6 +20,7 @@ console.log(calculator(2, 4, 'add'));
 try {
   console.log(calculator(1, 5, 'divide'));
 } catch (e) {
-  console.log('Something went wrong, error message:', e.message);
-  
+  console.log('Something went wrong, error message:', e.message); 
 }
+
+console.log(process.argv);
