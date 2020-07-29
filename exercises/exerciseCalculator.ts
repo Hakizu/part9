@@ -9,10 +9,29 @@ interface report {
   average: number, 
 }
 
+interface arguments {
+  x: Array<number>,
+  y: number
+}
+
+const parseArguments = (arg: Array<string>): arguments => {
+  const typedAgruments = arg.slice(2)
+
+  if (typedAgruments.every(e => !isNaN(Number(e)))) {
+    const reportData = typedAgruments.slice(1)
+    return {
+      x: reportData.map(e => Number(e)),
+      y: Number(typedAgruments[0])
+    }
+  } else {
+    throw new Error('Inputs are not numbers')
+  }
+}
+
 
 const calculateExercise = (x: Array<number>, y: number): report => {
   
-  const trainedDays = 7 - x.filter(value => value === 0).length
+  const trainedDays = x.length - x.filter(value => value === 0).length
   const dailyAverage = x.reduce((a,b) => a + b) / x.length
   const metricRating = Math.round(dailyAverage / y)
   
@@ -42,7 +61,12 @@ const calculateExercise = (x: Array<number>, y: number): report => {
     ratingDescription: descripRating(),
   }
 }
+// console.log(calculateExercise([3, 0, 2, 4.5, 0, 3, 1],2));
 
-
-
-console.log(calculateExercise([3, 0, 2, 4.5, 0, 3, 1],2));
+try {
+  const { x , y } = parseArguments(process.argv);
+  console.log(calculateExercise(x, y));
+} catch (e) {
+  console.log('Error, something bad happened, message: ', e.message);
+  
+}

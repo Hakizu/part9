@@ -26,5 +26,5 @@ try {
   multiplicator(value1, value2, `Multiplied ${value1} with ${value2}, the result is: `)
 } catch (e) {
   console.log('Error, something bad happened, message: ', e.message);
-  
+
 }
