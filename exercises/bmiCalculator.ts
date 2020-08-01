@@ -18,15 +18,15 @@ const parseInput = (arg: Array <string>): input => {
   }
 }
 
-const calcBMI = (value1: number, value2: number): void => {
+export const calcBMI = (value1: number, value2: number): string => {
   const height = value1 / 100  
   const BMI = value2 / Math.pow(height, 2)
   console.log(BMI);
-  
 
-  if ( BMI < 20 )  console.log('Underweight');
-  if ( BMI > 25 ) console.log('Overweight');
-  if ( BMI > 20 && BMI < 25 ) console.log('Normal (Healthy weight)');
+  if ( BMI < 20 )  return 'Underweight';
+  if ( BMI > 25 ) return 'Overweight';
+  if ( BMI > 20 && BMI < 25 ) return 'Normal (Healthy weight)';
+  return 'Error no BMI calculated'
 }
 
 try {
