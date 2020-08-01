@@ -11,12 +11,20 @@ app.get('/bmi', (req, res) => {
   const height: number = Number(req.query.height);
   const weight: number = Number(req.query.weight)
 
-  res.send({
-    weight: weight,
-    height: height,
-    bmi: calcBMI(height, weight)
-  })
-});
+  if ( isNaN(height) || isNaN(weight)) {
+    res.send('Wrong data type as input')
+
+  } else if (height === 0 || weight ===0) {
+    res.send('Height or weight is set to 0 - one input is likely missing')
+
+  } else {
+    res.send({
+      weight: weight,
+      height: height,
+      bmi: calcBMI(height, weight)
+    })
+  }
+})
 
 const PORT = 3003
 
